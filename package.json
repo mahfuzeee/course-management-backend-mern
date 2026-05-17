@@ -1,0 +1,41 @@
+{
+  "name": "course-management-backend-mern",
+  "version": "1.0.0",
+  "description": "It is a course management backend api's created using exprssjs and mongodb",
+  "keywords": [
+    "express",
+    "mongodb",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/mahfuzeee/course-management-backend-mern#readme",
+  "bugs": {
+    "url": "https://github.com/mahfuzeee/course-management-backend-mern/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahfuzeee/course-management-backend-mern.git"
+  },
+  "license": "ISC",
+  "author": "Md. Mahfuzur Rahman",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.2",
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
