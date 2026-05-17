@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import authRoutes from "./routes/authRoutes.js";
+import routes from "./routes/index.js";
 import {
   notFoundHandler,
   errorHandler,
@@ -20,7 +20,7 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.use("/api/auth", authRoutes);
+app.use("/api/v1", routes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
