@@ -29,7 +29,7 @@ All routes are grouped under the router files in `src/routes`.
 
 **Auth / User routes**
 
-- POST /api/users/register
+- POST /api/v1/users/register
   - Description: Register a new user.
   - Body (JSON):
     - `name` (string, required)
@@ -38,18 +38,18 @@ All routes are grouped under the router files in `src/routes`.
     - `phoneNumber` (string, required)
   - Response: newly created user (sensitive fields omitted by controller).
 
-- POST /api/users/login
+- POST /api/v1/users/login
   - Description: Login with `email` and `password`.
   - Body (JSON):
     - `email` (string, required)
     - `password` (string, required)
   - Response: on success the server sets a cookie named `u_token` containing a JWT (signed with `JWT_SECRET`).
 
-- GET /api/users/profile (protected)
+- GET /api/v1/users/profile (protected)
   - Description: Get current user's profile.
   - Auth: Requires cookie `u_token`.
 
-- PUT /api/users/profile (protected)
+- PUT /api/v1/users/profile (protected)
   - Description: Update current user's profile.
   - Body (JSON): fields to update (e.g., `name`, `phoneNumber`, `password`).
   - Auth: cookie `u_token` required.
@@ -58,7 +58,7 @@ All routes are grouped under the router files in `src/routes`.
 
 All course endpoints are protected and require the `u_token` cookie.
 
-- POST /api/courses/
+- POST /api/v1/courses/
   - Description: Create a new course.
   - Body (JSON):
     - `title` (string, required, unique)
@@ -69,17 +69,17 @@ All course endpoints are protected and require the `u_token` cookie.
     - `instructorName` (string, required)
     - `courseImage` (string, required — URL or file path)
 
-- GET /api/courses/
+- GET /api/v1/courses/
   - Description: List all courses.
 
-- GET /api/courses/:id
+- GET /api/v1/courses/:id
   - Description: Get a single course by its ID.
 
-- PUT /api/courses/:id
+- PUT /api/v1/courses/:id
   - Description: Update an existing course by ID.
   - Body: any of the course fields (see create body).
 
-- DELETE /api/courses/:id
+- DELETE /api/v1/courses/:id
   - Description: Delete a course by ID.
 
 ## Models (shapes)
