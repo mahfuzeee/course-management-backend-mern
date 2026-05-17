@@ -1,8 +1,19 @@
 import * as courseRepository from "../repositories/course.repository.js";
 
 export const createCourse = async (course) => {
-  const newCourse = await courseRepository.createCourse(course);
-  return newCourse;
+  try {
+    const existingCourse = await courseRepository.getCourseByTitle(
+      course.title,
+    );
+    if (existingCourse) {
+      throw new Error("Course with this title already exists");
+    }
+
+    const newCourse = await courseRepository.createCourse(course);
+    return newCourse;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getAllCourses = async () => {

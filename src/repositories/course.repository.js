@@ -17,12 +17,17 @@ export const getCourseById = async (id) => {
 
 export const updateCourse = async (id, course) => {
   const updatedCourse = await Course.findByIdAndUpdate(id, course, {
-    new: true,
+    returnDocument: "after",
   });
   return updatedCourse;
 };
 
 export const deleteCourse = async (id) => {
   const deletedCourse = await Course.findByIdAndDelete(id);
-  return deletedCourse;
+  return null;
+};
+
+export const getCourseByTitle = async (title) => {
+  const course = await Course.findOne({ title });
+  return course;
 };
