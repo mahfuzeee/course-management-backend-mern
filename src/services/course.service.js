@@ -1,4 +1,4 @@
-import courseRepository from "../repositories/course.repository.js";
+import * as courseRepository from "../repositories/course.repository.js";
 
 export const createCourse = async (course) => {
   const newCourse = await courseRepository.createCourse(course);

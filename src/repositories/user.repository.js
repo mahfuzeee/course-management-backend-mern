@@ -1,5 +1,8 @@
 import User from "../models/user.model.js";
+import mongoose from "mongoose";
 
+const objectId = mongoose.Types.ObjectId;
+//create user
 export const createUser = async (user) => {
   const newUser = await User.create(user);
   return newUser;
@@ -10,7 +13,14 @@ export const getUserByEmail = async (email) => {
   return user;
 };
 
+//Get user by id
 export const getUserById = async (id) => {
-  const user = await User.findById(id);
+  const user = await User.findById(new objectId(id));
   return user;
+};
+
+//update user
+export const updateUser = async (id, user) => {
+  const updatedUser = await User.findByIdAndUpdate(id, user, { new: true });
+  return updatedUser;
 };
