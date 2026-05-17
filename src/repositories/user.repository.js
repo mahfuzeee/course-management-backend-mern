@@ -21,6 +21,8 @@ export const getUserById = async (id) => {
 
 //update user
 export const updateUser = async (id, user) => {
-  const updatedUser = await User.findByIdAndUpdate(id, user, { new: true });
+  const updatedUser = await User.findByIdAndUpdate(id, user, {
+    returnDocument: "after",
+  });
   return updatedUser;
 };

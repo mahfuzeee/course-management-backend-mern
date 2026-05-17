@@ -15,6 +15,7 @@ export const registerUser = async (req, res, next) => {
     }
     const user = await userService.createUser(req.body);
     res.status(201).json({
+      success: true,
       message: "User created successfully",
       newUser: user,
     });
@@ -34,7 +35,9 @@ export const loginUser = async (req, res, next) => {
     res.cookie("u_token", user.token, options);
 
     //send response to frontend
-    res.status(200).json({ message: "User logged in successfully", user });
+    res
+      .status(200)
+      .json({ success: true, message: "User logged in successfully", user });
   } catch (error) {
     next(error);
   }
@@ -48,7 +51,11 @@ export const userProfile = async (req, res, next) => {
     //send response to frontend
     res
       .status(200)
-      .json({ message: "Entered user profile successfully", user });
+      .json({
+        success: true,
+        message: "Entered user profile successfully",
+        user,
+      });
   } catch (error) {
     next(error);
   }
