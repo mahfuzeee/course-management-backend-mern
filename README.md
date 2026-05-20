@@ -29,7 +29,7 @@ All routes are grouped under the router files in `src/routes`.
 
 **Auth / User routes**
 
-- POST /api/v1/users/register
+- POST /api/v1/user/register
   - Description: Register a new user.
   - Body (JSON):
     - `name` (string, required)
@@ -38,21 +38,24 @@ All routes are grouped under the router files in `src/routes`.
     - `phoneNumber` (string, required)
   - Response: newly created user (sensitive fields omitted by controller).
 
-- POST /api/v1/users/login
+- POST /api/v1/user/login
   - Description: Login with `email` and `password`.
   - Body (JSON):
     - `email` (string, required)
     - `password` (string, required)
   - Response: on success the server sets a cookie named `u_token` containing a JWT (signed with `JWT_SECRET`).
 
-- GET /api/v1/users/profile (protected)
+- GET /api/v1/user/profile (protected)
   - Description: Get current user's profile.
   - Auth: Requires cookie `u_token`.
 
-- PUT /api/v1/users/profile (protected)
+- PUT /api/v1/user/profile (protected)
   - Description: Update current user's profile.
   - Body (JSON): fields to update (e.g., `name`, `phoneNumber`, `password`).
   - Auth: cookie `u_token` required.
+
+  - GET /api/v1/user/logout (protected)
+  - Description: Log out the current user.
 
 **Course routes**
 
